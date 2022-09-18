@@ -5,7 +5,7 @@ services:
     build:
       context: ./services/backend
       dockerfile: Dockerfile
-    entrypoint: ["/usr/src/daily-log-app/entrypoint.sh"] # new
+    entrypoint: ["sh", "/usr/src/daily-log-app/entrypoint.sh"] # new
     volumes:
       - "./services/backend:/usr/src/daily-log-app"
     ports:
@@ -13,7 +13,7 @@ services:
     environment:
       - FLASK_ENV=development
       - APP_SETTINGS=app.config.DevelopmentConfig
-      - DATABASE_URL=postgresql://postgres:postgres@api-db:5432/app_dev
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/app_dev
     depends_on:
       - db
 

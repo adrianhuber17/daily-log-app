@@ -18,10 +18,10 @@ RUN apt-get update \
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-# add app
-COPY . .
 
 # add entrypoint.sh
-COPY ./entrypoint.sh .
+COPY ./entrypoint.sh /usr/src/daily-log-app/entrypoint.sh
 RUN chmod +x /usr/src/daily-log-app/entrypoint.sh
 
+# add appc
+COPY . .

@@ -3,6 +3,7 @@
 import sys,os
 from flask.cli import FlaskGroup
 from app import create_app, db
+from app.api.models import Message
 # from app.api.models
 
 app = create_app()
@@ -10,8 +11,8 @@ cli = FlaskGroup(create_app=create_app)
 
 @cli.command('create_db_dev')
 def create_db():
-    os.system("createdb app_dev")
-    db.create_all()
+    message = Message(text="hellooo")
+    db.session.add(message)
     db.session.commit()
     print("database creation completed")
 
