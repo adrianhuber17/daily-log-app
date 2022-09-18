@@ -12,5 +12,5 @@ def add_message(text):
     db.session.commit()
     message_json = {"id":message.id,
                     "text":message.text,
-                    "date":f"{message.date.month}/{message.date.day}/{message.date.year}"}
+                    "date":f"{message.date.year}-{message.date.month}-{message.date.day}"}
     return message_json

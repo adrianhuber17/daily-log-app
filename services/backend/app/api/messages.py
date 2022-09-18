@@ -11,7 +11,7 @@ message_namespace = Namespace("message")
 message = message_namespace.model("Message",
                                     {"id":fields.Integer(readOnly=True),
                                     "text":fields.String(required=True),
-                                    "date":fields.DateTime})
+                                    "date":fields.Date})
 
 
 class Messages(Resource):
