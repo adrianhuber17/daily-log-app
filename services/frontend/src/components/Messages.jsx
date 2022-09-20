@@ -6,7 +6,7 @@ export default function Messages() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("/messages")
+    fetch(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/messages`)
       .then((response) => response.json())
       .then((responseData) => {
         setMessages(responseData);
@@ -16,7 +16,7 @@ export default function Messages() {
 
   function handleClick() {
     const data = { text: message };
-    fetch("/messages", {
+    fetch(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/messages`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
